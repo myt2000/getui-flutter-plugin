@@ -41,6 +41,6 @@ repositories {
 }
 dependencies {
     implementation 'com.google.code.gson:gson:2.10.1'
-     compileOnly('com.getui:gtsdk:3.3.7.0')
+    compileOnly('com.getui:sdk-for-gj:4.4.3.17')
 
 }
