@@ -14,7 +14,7 @@ import com.igexin.sdk.message.FeedbackCmdMessage;
 import com.igexin.sdk.message.GTCmdMessage;
 import com.igexin.sdk.message.GTNotificationMessage;
 import com.igexin.sdk.message.GTTransmitMessage;
-import com.igexin.sdk.message.QueryTagCmdMessage;
+
 import com.igexin.sdk.message.SetTagCmdMessage;
 import com.igexin.sdk.message.UnBindAliasCmdMessage;
 
@@ -73,23 +73,7 @@ public class FlutterIntentService extends GTIntentService {
             GetuiflutPlugin.transmitMessageReceive(unBindAliasResult((UnBindAliasCmdMessage) gtCmdMessage),GetuiflutPlugin.StateType.onAliasResult);
         } else if ((action == PushConsts.THIRDPART_FEEDBACK)) {
             GetuiflutPlugin.transmitMessageReceive(feedbackResult((FeedbackCmdMessage) gtCmdMessage),GetuiflutPlugin.StateType.thirdPartFeedback);
-        }else if(action == PushConsts.QUERY_TAG_RESULT){
-            GetuiflutPlugin.transmitMessageReceive(onQueryTagResult((QueryTagCmdMessage) gtCmdMessage), GetuiflutPlugin.StateType.onQueryTagResult);
         }
-
-
-    }
-
-    private String onQueryTagResult(QueryTagCmdMessage gtCmdMessage) {
-        String code = gtCmdMessage.getCode();
-        String sn = gtCmdMessage.getSn();
-        Tag[] tags = gtCmdMessage.getTags();
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("sn",sn);
-        map.put("result",Integer.parseInt(code)==0);
-        map.put("code",Integer.parseInt(code));
-        map.put("tags",tags);
-        return GSON.toJson(map);
     }
 
     private String feedbackResult(FeedbackCmdMessage feedbackCmdMsg) {
