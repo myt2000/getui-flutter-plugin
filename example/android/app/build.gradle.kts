@@ -57,7 +57,6 @@ flutter {
     source = "../.."
 }
 dependencies {
-    implementation("com.getui:gtsdk:3.3.12.0") // 修复：使用 () 和双引号
-    implementation("com.getui:gtc:3.2.18.0")  // 修复：使用 () 和双引号
+    implementation("com.getui:sdk-for-gj:4.4.3.17")  // 个推FCM海外版本SDK
 
 }
