@@ -106,10 +106,7 @@ public class GetuiflutPlugin implements FlutterPlugin, MethodCallHandler {
                 setTag(call.argument("tags"), call.argument("sn"));
                 result.success(null);
                 break;
-            case "queryTag":
-                PushManager.getInstance().queryTag(context, call.argument("sn"));
-                result.success(null);
-                break;
+            
             case "onActivityCreate":
                 onActivityCreate();
                 result.success(null);
